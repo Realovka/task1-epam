@@ -29,6 +29,7 @@ public class OperationCustomArrayServiceImpl implements OperationCustomArrayServ
         return result;
     }
 
+    @Override
     public int findSum(CustomArray customArray) {
         int[] array = customArray.getArray();
         int sum = 0;
@@ -38,7 +39,32 @@ public class OperationCustomArrayServiceImpl implements OperationCustomArrayServ
         return sum;
     }
 
+    @Override
     public double findAverageValue(CustomArray customArray) {
         return (double) findSum(customArray) / customArray.getArray().length;
+    }
+
+    @Override
+    public int getNumberPositiveElements(CustomArray customArray) {
+        int[] array = customArray.getArray();
+        int count = 0;
+        for(int i = 0; i < array.length; i++) {
+            if (array[i] > 0) {
+              count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public int getNumberNegativeElements(CustomArray customArray) {
+        int[] array = customArray.getArray();
+        int count = 0;
+        for(int i = 0; i < array.length; i++) {
+            if (array[i] < 0) {
+                count++;
+            }
+        }
+        return count;
     }
 }

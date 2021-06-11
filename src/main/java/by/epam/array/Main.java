@@ -24,12 +24,14 @@ public class Main {
         System.out.println();
 
         OperationCustomArrayService operationCustomArrayService = new OperationCustomArrayServiceImpl();
-        int min = operationCustomArrayService.findMin(customArray);
-        int max = operationCustomArrayService.findMax(customArray);
-        System.out.println(max);
-        System.out.println(min);
+
+        System.out.println(operationCustomArrayService.findMin(customArray));
+        System.out.println(operationCustomArrayService.findMax(customArray));
 
         System.out.println(operationCustomArrayService.findSum(customArray));
         System.out.println(operationCustomArrayService.findAverageValue(customArray));
+
+        System.out.println(operationCustomArrayService.getNumberNegativeElements(customArray));
+        System.out.println(operationCustomArrayService.getNumberPositiveElements(customArray));
     }
 }
