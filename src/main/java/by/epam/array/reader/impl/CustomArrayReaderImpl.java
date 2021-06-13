@@ -16,7 +16,7 @@ public class CustomArrayReaderImpl implements CustomArrayReader {
     private static final Logger logger = LogManager.getLogger();
 
     public String getStringFromFile(String pathToFile) throws CustomArrayException {
-        String lineFromFile = null;
+        String lineFromFile;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToFile))) {
             lineFromFile = bufferedReader.readLine();
             while (lineFromFile!= null) {
