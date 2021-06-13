@@ -2,31 +2,38 @@ package by.epam.array.service.impl;
 
 import by.epam.array.entity.CustomArray;
 import by.epam.array.service.OperationCustomArrayService;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class OperationCustomArrayServiceImpl implements OperationCustomArrayService {
+
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public int findMax(CustomArray customArray) {
         int[] array = customArray.getArray();
-        int result = array[0];
+        int max = array[0];
         for (int i = 0; i < array.length; i++) {
-            if (array[i] >  result) {
-               result = array[i];
+            if (array[i] >  max) {
+               max = array[i];
             }
         }
-        return result;
+        logger.log(Level.INFO,"Max of array is " + max);
+        return max;
     }
 
     @Override
     public int findMin(CustomArray customArray) {
         int[] array = customArray.getArray();
-        int result = array[0];
+        int min = array[0];
         for (int i = 0; i < array.length; i++) {
-            if (array[i] <  result) {
-                result = array[i];
+            if (array[i] <  min) {
+                min = array[i];
             }
         }
-        return result;
+        logger.log(Level.INFO,"Min of array is " + min);
+        return min;
     }
 
     @Override
@@ -36,35 +43,40 @@ public class OperationCustomArrayServiceImpl implements OperationCustomArrayServ
         for(int item : array) {
             sum += item;
         }
+        logger.log(Level.INFO,"Sum of array is " + sum);
         return sum;
     }
 
     @Override
     public double findAverageValue(CustomArray customArray) {
-        return (double) findSum(customArray) / customArray.getArray().length;
+        double averageValue = (double) findSum(customArray) / customArray.getArray().length;
+        logger.log(Level.INFO,"Average of array is " + averageValue);
+        return averageValue;
     }
 
     @Override
     public long getNumberPositiveElements(CustomArray customArray) {
         int[] array = customArray.getArray();
-        int count = 0;
+        int numberPositive = 0;
         for(int i = 0; i < array.length; i++) {
             if (array[i] > 0) {
-              count++;
+              numberPositive++;
             }
         }
-        return count;
+        logger.log(Level.INFO,"Number of positive elements is " + numberPositive);
+        return numberPositive;
     }
 
     @Override
     public long getNumberNegativeElements(CustomArray customArray) {
         int[] array = customArray.getArray();
-        int count = 0;
+        int numberNegative = 0;
         for(int i = 0; i < array.length; i++) {
             if (array[i] < 0) {
-                count++;
+                numberNegative++;
             }
         }
-        return count;
+        logger.log(Level.INFO,"Number of negative elements is " + numberNegative);
+        return numberNegative;
     }
 }

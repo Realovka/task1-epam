@@ -2,8 +2,13 @@ package by.epam.array.service.impl;
 
 import by.epam.array.entity.CustomArray;
 import by.epam.array.service.SortedCustomArrayService;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SortedCustomArrayServiceImpl implements SortedCustomArrayService {
+
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public int[] selectionSort(CustomArray customArray) {
@@ -21,11 +26,12 @@ public class SortedCustomArrayServiceImpl implements SortedCustomArrayService {
             array[i] = min;
             array[minId] = temp;
         }
+        logger.log(Level.INFO,"Array was sorted using selection sort");
         return array;
     }
 
     @Override
-    public int[] insertSort(CustomArray customArray) {
+    public int[] insertionSort(CustomArray customArray) {
         int[] array = customArray.getArray();
         for (int i = 1; i < array.length; i++) {
             int current = array[i];
@@ -36,6 +42,7 @@ public class SortedCustomArrayServiceImpl implements SortedCustomArrayService {
             }
             array[j+1] = current;
         }
+        logger.log(Level.INFO,"Array was sorted using insertion sort");
         return array;
     }
 
@@ -43,6 +50,7 @@ public class SortedCustomArrayServiceImpl implements SortedCustomArrayService {
     public int[] quickSort(CustomArray customArray) {
         int[] array = customArray.getArray();
         quickSortArray(array, 0, array.length - 1);
+        logger.log(Level.INFO,"Array was sorted using quick sort");
         return array;
     }
 

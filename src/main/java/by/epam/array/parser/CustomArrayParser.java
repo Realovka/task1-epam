@@ -1,28 +1,28 @@
 package by.epam.array.parser;
 
-import by.epam.array.exception.CustomArrayIsEmptyException;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import by.epam.array.entity.CustomArray;
+import by.epam.array.exception.CustomArrayException;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CustomArrayParser {
-    public static int [] parseCustomArray(String customArray) {
-        List<Integer> arrayListInteger = new ArrayList<>();
-        int i = 0;
-        int[] array;
-        if(customArray.isEmpty()){
-            throw new CustomArrayIsEmptyException("Array is empty");
-        } else {
-            String [] arrayString = customArray.split(" ");
-            array = new int[arrayString.length];
-            for(String item : arrayString) {
-               array[i] = Integer.parseInt(item);
-               i++;
-            }
-        }
 
-        return array;
+    private static final Logger logger = LogManager.getLogger();
+    private static final String DELIMITER = " ";
+
+    public static CustomArray parseCustomArray(String customArray) throws CustomArrayException {
+        if (customArray == null) {
+            logger.log(Level.ERROR, "String from file is empty");
+            throw new CustomArrayException("String from file is empty");
+        }
+        int i = 0;
+        String[] arrayString = customArray.split(DELIMITER);
+        int[] array = new int[arrayString.length];
+        for (String item : arrayString) {
+            array[i] = Integer.parseInt(item);
+            i++;
+        }
+        return new CustomArray(array);
     }
 }
