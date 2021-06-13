@@ -7,6 +7,6 @@ public interface OperationCustomArrayService {
     int findMin(CustomArray customArray);
     int findSum(CustomArray customArray);
     double findAverageValue(CustomArray customArray);
-    int getNumberPositiveElements(CustomArray customArray);
-    int getNumberNegativeElements(CustomArray customArray);
+    long getNumberPositiveElements(CustomArray customArray);
+    long getNumberNegativeElements(CustomArray customArray);
 }

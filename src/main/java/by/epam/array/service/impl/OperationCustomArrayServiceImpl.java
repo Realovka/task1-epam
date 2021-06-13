@@ -45,7 +45,7 @@ public class OperationCustomArrayServiceImpl implements OperationCustomArrayServ
     }
 
     @Override
-    public int getNumberPositiveElements(CustomArray customArray) {
+    public long getNumberPositiveElements(CustomArray customArray) {
         int[] array = customArray.getArray();
         int count = 0;
         for(int i = 0; i < array.length; i++) {
@@ -57,7 +57,7 @@ public class OperationCustomArrayServiceImpl implements OperationCustomArrayServ
     }
 
     @Override
-    public int getNumberNegativeElements(CustomArray customArray) {
+    public long getNumberNegativeElements(CustomArray customArray) {
         int[] array = customArray.getArray();
         int count = 0;
         for(int i = 0; i < array.length; i++) {
