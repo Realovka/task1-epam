@@ -23,7 +23,7 @@ public class OperationCustomArrayStreamServiceImpl implements OperationCustomArr
     @Override
     public int findMin(CustomArray customArray) {
         int[] array = customArray.getArray();
-        int min = Arrays.stream(array).max().getAsInt();
+        int min = Arrays.stream(array).min().getAsInt();
         logger.log(Level.INFO,"Min of array is " + min);
         return min;
     }
@@ -45,7 +45,7 @@ public class OperationCustomArrayStreamServiceImpl implements OperationCustomArr
     }
 
     @Override
-    public long getNumberPositiveElements(CustomArray customArray) {
+    public long findNumberPositiveElements(CustomArray customArray) {
         int[] array = customArray.getArray();
         long numberPositive = Arrays.stream(array).filter(element -> element > 0).count();
         logger.log(Level.INFO,"Number of positive elements is " + numberPositive);
@@ -53,7 +53,7 @@ public class OperationCustomArrayStreamServiceImpl implements OperationCustomArr
     }
 
     @Override
-    public long getNumberNegativeElements(CustomArray customArray) {
+    public long findNumberNegativeElements(CustomArray customArray) {
         int[] array = customArray.getArray();
         long numberNegative = Arrays.stream(array).filter(element -> element < 0).count();
         logger.log(Level.INFO,"Number of negative elements is " + numberNegative);

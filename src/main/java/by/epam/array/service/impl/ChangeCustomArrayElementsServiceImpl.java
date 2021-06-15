@@ -1,12 +1,12 @@
 package by.epam.array.service.impl;
 
 import by.epam.array.entity.CustomArray;
-import by.epam.array.service.ChangeCustomArrayElementService;
+import by.epam.array.service.ChangeCustomArrayElementsService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ChangeCustomArrayElementsImpl implements ChangeCustomArrayElementService {
+public class ChangeCustomArrayElementsServiceImpl implements ChangeCustomArrayElementsService {
 
     private static final Logger logger = LogManager.getLogger();
 

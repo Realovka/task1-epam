@@ -15,16 +15,16 @@ public class SortedCustomArrayServiceImpl implements SortedCustomArrayService {
         int[] array = customArray.getArray();
         for (int i = 0; i < array.length; i++) {
             int min = array[i];
-            int minId = i;
+            int minIndex = i;
             for (int j = i + 1; j < array.length; j++) {
                 if (array[j] < min) {
                     min = array[j];
-                    minId = j;
+                    minIndex = j;
                 }
             }
             int temp = array[i];
             array[i] = min;
-            array[minId] = temp;
+            array[minIndex] = temp;
         }
         logger.log(Level.INFO,"Array was sorted using selection sort");
         return array;

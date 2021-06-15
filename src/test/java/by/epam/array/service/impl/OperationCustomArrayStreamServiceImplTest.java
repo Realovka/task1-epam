@@ -6,29 +6,28 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class OperationCustomArrayServiceImplTest {
-
+public class OperationCustomArrayStreamServiceImplTest {
     CustomArray customArray;
     CustomArray customArrayForAverageValue;
     OperationCustomArrayService operationCustomArrayService;
 
     @BeforeClass
     public void setUp() {
-        customArray = new CustomArray(4, -5, 18, 20, 0);
+        customArray = new CustomArray(55, -101, 8, 67, 0);
         customArrayForAverageValue = new CustomArray(5, 5, 5);
-        operationCustomArrayService = new OperationCustomArrayServiceImpl();
+        operationCustomArrayService = new OperationCustomArrayStreamServiceImpl();
     }
 
     @Test
     public void findMaxNotEqualsTest() {
         int actual = operationCustomArrayService.findMax(customArray);
-        Assert.assertNotEquals(actual, -11);
+        Assert.assertNotEquals(actual, -15);
     }
 
     @Test
     public void findMaxTest() {
         int actual = operationCustomArrayService.findMax(customArray);
-        Assert.assertEquals(actual, 20);
+        Assert.assertEquals(actual, 67);
     }
 
     @Test
@@ -40,13 +39,13 @@ public class OperationCustomArrayServiceImplTest {
     @Test
     public void findMinTest() {
         int actual = operationCustomArrayService.findMin(customArray);
-        Assert.assertEquals(actual, -5);
+        Assert.assertEquals(actual, -101);
     }
 
     @Test
     public void findSumTest() {
         int actual = operationCustomArrayService.findSum(customArray);
-        Assert.assertEquals(actual, 37);
+        Assert.assertEquals(actual, 29);
     }
 
     @Test
@@ -64,7 +63,7 @@ public class OperationCustomArrayServiceImplTest {
     @Test
     public void findAverageValueNotEqualsTest() {
         double actual = operationCustomArrayService.findAverageValue(customArrayForAverageValue);
-        Assert.assertNotEquals(actual, 6.3);
+        Assert.assertNotEquals(actual, 7.2);
     }
 
     @Test
