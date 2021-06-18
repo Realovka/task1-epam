@@ -6,10 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 
-
-public class CustomArrayParserImplTest {
+public class CustomArrayReaderImplTest {
 
     CustomArrayReader customArrayReader;
 
@@ -31,8 +29,13 @@ public class CustomArrayParserImplTest {
         Assert.assertNull(actual);
     }
 
-    @Test(expectedExceptions = IOException.class)
-    public void readStringFromFileExceptionTest() throws CustomArrayException {
-        String actual = customArrayReader.readStringFromFile("src//main//resources//file//array3.txt");
+    @Test
+    public void readStringFromFileExceptionTest() {
+        Assert.expectThrows(CustomArrayException.class, () -> customArrayReader.readStringFromFile("src//main//resources//file//array3.txt"));
+    }
+
+    @Test(expectedExceptions = CustomArrayException.class)
+    public void readStringFromFileExceptionTestTest() throws CustomArrayException {
+        customArrayReader.readStringFromFile("src//main//resources//file//array3.txt");
     }
 }

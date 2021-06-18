@@ -12,7 +12,7 @@ public class CustomArrayParserImpl implements CustomArrayParser {
     private static final String DELIMITER = "\\s";
 
     public int[] parseCustomArray(String customArray) throws CustomArrayException {
-        if (customArray == null) {
+        if (customArray.isBlank()) {
             logger.log(Level.ERROR, "String from file is empty");
             throw new CustomArrayException();
         }

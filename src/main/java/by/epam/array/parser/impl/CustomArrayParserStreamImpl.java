@@ -15,7 +15,7 @@ public class CustomArrayParserStreamImpl implements CustomArrayParser {
 
     @Override
     public int[] parseCustomArray(String customArray) throws CustomArrayException {
-        if (customArray == null) {
+        if (customArray.isBlank()) {
             logger.log(Level.ERROR, "String from file is empty");
             throw new CustomArrayException();
         }
